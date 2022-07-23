@@ -6,26 +6,25 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
 
+const MyListedProductScreen = () => {
+    const dispatch = useDispatch()
 
-const HomeScreen = () => {
-  const dispatch = useDispatch()
-
-  const productList = useSelector((state) => state.productList)
-  const { loading, error, products } = productList
-
-  useEffect(() => {
-    dispatch(listProducts())
-  }, [dispatch])
+    const productList = useSelector((state) => state.productList)
+    const { loading, error, products } = productList
+  
+    useEffect(() => {
+      dispatch(listProducts())
+    }, [dispatch])  
 
   return (
     <>
         <Row>
           <Col md={10}>
-            <h1>Products</h1>
+            <h1>My Listed Items</h1>
           </Col>
 
           <Col md={2}>
-            <Button className='btn-block' type='button'>Connect Wallet</Button>
+            <Button className='btn-block' type='button'>Add New Items</Button>
           </Col>
         </Row>
 
@@ -48,4 +47,4 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default MyListedProductScreen
